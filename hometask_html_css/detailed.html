@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="stylesheet" href="./Styles/Detailed/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>css-html-hometask</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="header-container">
+                <div class="search">
+                    <input type="text" name="search" id="search__input-text" class="search__input-text" placeholder="Search products" autocomplete="off">
+                    <button type="button" class="search__icon">
+                        <svg class="svg" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="path" d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z" fill="#323232"/>
+                        </svg>
+                    </button>
+                    <div class="search__input-line"></div>
+                </div>
+                <div class="icons">
+                    <a href="#" class="link icons__link-basket">
+                        <img src="./Images/basket_icon.svg" alt="Basket" class="icons__img-basket">
+                    </a>
+                    <a href="#" class="link icons__link-profile">
+                        <img src="./Images/profile_icon.svg" alt="Profile" class="icons__img-profile">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="main__detailed-wrapper">
+            <div class="main__detailed-container">
+                <div class="detailed-img-container">
+                    <div class="gradient-container"></div>
+                    <img src="./Images/item_img.png" alt="Image" class="detailed__img">
+                </div>
+                <div class="detailed-info-container">
+                    <span class="detailed-main-title text">G Home</span>
+                    <p class="detailed-main-text text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices ante sit amet mollis luctus. Morbi semper, tellus in finibus tristique, purus odio sodales sem, vitae dignissim enim metus vel purus. Quisque a rutrum leo. Phasellus quis ex sed magna finibus convallis varius luctus justo. Nullam et sapien vel magna ultrices pulvinar. Nunc felis ante, lobortis eget imperdiet in, iaculis at justo. Etiam libero nisl, hendrerit vitae ultricies vitae, pharetra a est. Vivamus vestibulum quam sit amet facilisis consequat. Curabitur sollicitudin arcu arcu, pretium aliquam nibh hendrerit a. Donec diam massa, tempus sed pulvinar a, fermentum et orci.</p>
+                    <span class="detailed-title text">Details</span>
+                    <p class="detailed-text text">Nulla et mauris sed elit semper pretium a quis augue. Fusce tempus est ex, eu porttitor nulla auctor et. Maecenas eget quam non risus porta elementum. Pellentesque posuere augue in malesuada fermentum. Maecenas vitae viverra mauris. Suspendisse a cursus libero. Pellentesque vitae purus eget lectus lobortis laoreet sed sollicitudin diam. Pellentesque pellentesque eu justo at ullamcorper. Quisque quis egestas magna. Vestibulum et felis id nisi dapibus viverra vel vitae nisl. Morbi lobortis nunc turpis, sed tincidunt quam cursus nec. Morbi eget lorem dolor.</p>
+                    <div class="add-to-cart-container">
+                        <div class="count-price-container">
+                            <span class="price">$129</span>
+                            <div class="count-container">
+                                <button type="button" class="sign count-remove"></button>
+                                <input type="text" class="count-text" id="count-text" value="1">
+                                <button type="button" class="sign count-add"></button>
+                            </div>
+                        </div>
+                        <div class="favourite-cart-conteiner">
+                            <button type="button" class="cart-btn">Add to cart</button>
+                            <button type="button" class="detailed-icon-favourite icon-favourite non-active"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
