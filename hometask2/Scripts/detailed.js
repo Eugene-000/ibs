@@ -1,22 +1,12 @@
 async function getItemInfo() {
-    const card = fetchItems(`http://localhost:3006/item/${getParam('id')}`, 'json');
-    const fetchCard = await Promise.resolve(card);
-    const item = fetchCard.content;
-    return item;
-}
-
-async function getPicturePath(item) {
-    const image = fetchItems(`http://localhost:3006${item.picture.path}`, 'blob');
-    const fetchImage = await Promise.resolve(image);
-    const picturePath = URL.createObjectURL(fetchImage);
-    return picturePath;
+    const item = await fetchItems(`${SERVER_URL}/item/${getParam('id')}`);
+    return item.content;
 }
 
 async function displayItems() {
     const elMainContainer = document.querySelector('.main__detailed-wrapper');
     if (elMainContainer) {
         const item = await getItemInfo();
-        const picture = await getPicturePath(item);
 
         let resultContainer = '';
         let favourite = '';
@@ -27,7 +17,7 @@ async function displayItems() {
         <div class="main__detailed-container">
             <div class="detailed-img-container">
                 <div class="gradient-container"></div>
-                <img src="${picture}" alt="${item.picture.alt}" class="detailed__img">
+                <img src="${SERVER_URL}${item.picture.path}" alt="${item.picture.alt}" class="detailed__img">
             </div>
             <div class="detailed-info-container">
                 <span class="detailed-main-title text">${item.name}</span>
