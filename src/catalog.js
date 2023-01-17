@@ -11,7 +11,7 @@ document.querySelector('.root').appendChild(Header());
 
 const elSearch = document.querySelector('.search__input-text');
 if(elSearch) {
-    elSearch.addEventListener('keyup', debounceSearch(() => searchFilter(elSearch), 2000));
+    elSearch.addEventListener('keyup', debounceSearch(searchFilter, 2000));
 }
 
 async function getItemsInfo() {

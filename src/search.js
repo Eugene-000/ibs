@@ -1,5 +1,5 @@
 export function searchFilter(elem) {
-    const searchText = elem.value.toLowerCase().trim();
+    const searchText = elem.toLowerCase().trim();
     const elsCard = document.querySelectorAll('.item');
     const elsCardName = document.querySelectorAll('.item__title');
     for(let i = 0; i < elsCard.length; i++) {
@@ -13,8 +13,10 @@ export function searchFilter(elem) {
 
 export function debounceSearch( callback, delay ) {
     let timeout;
-    return function() {
+    return function(e) {
         clearTimeout(timeout);
-        timeout = setTimeout(callback, delay);
+        timeout = setTimeout(() => {
+          callback(e.target.value);
+        }, delay);
     }
 }
