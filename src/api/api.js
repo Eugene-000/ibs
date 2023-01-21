@@ -1,4 +1,4 @@
-async function fetchItems(url) {
+export async function fetchItems(url) {
     let response = await fetch(url);
     let content;
     if (!response.ok) {
