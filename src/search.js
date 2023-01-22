@@ -14,8 +14,8 @@ export function searchFilter(event) {
 
 export function debounceSearch(callback, delay) {
     let timeout;
-    return function(argument) {
+    return function(...argument) {
         clearTimeout(timeout);
-        timeout = setTimeout(callback, delay, argument);
+        timeout = setTimeout(callback, delay, ...argument);
     }
 }
