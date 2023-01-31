@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Header } from "../../components/Header/Header";
 import { ListItems } from "../../components/ListItems/ListItems";
 import { debounceSearch } from "../../search";
@@ -19,15 +19,10 @@ export function Catalog() {
         getItems();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const debouncedHandleSearch = useCallback(debounceSearch(setSearchQuery, 2000))
 
-    const handleSearch = (value) => {
-        setSearchQuery(value);
-    }
-    
-    const debouncedHandleSearch = useMemo(() => {
-        return debounceSearch(handleSearch, 2000)
-    }, []);
-    
     const searchedItems = useMemo(() => {
         if(searchQuery && items) {
             return items.filter(item => item.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))

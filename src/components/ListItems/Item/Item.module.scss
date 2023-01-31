@@ -12,23 +12,10 @@
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
     }
 
-    .favouriteBtn {
+    .favouriteContainer {
         position: absolute;
         top: 8px;
         right: 8px;
-        width: 24px;
-        height: 24px;
-        border: none;
-        background: none;
-        cursor: pointer;
-    }
-
-    .nonActive {
-        background: url("../../../assets/images/favourite_icon.svg") center no-repeat;
-    }
-    
-    .active {
-        background: url("../../../assets/images/favourite_icon_active.svg") center no-repeat;
     }
 
     .linkItem {

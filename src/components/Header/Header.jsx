@@ -11,10 +11,10 @@ export const Header = ({handleSearch}) => {
                 <Search handleSearch={handleSearch}/>
                 <div className={styles.icons}>
                     <a href="/" className={styles.icon}>
-                        <img src={imgCart} alt="Cart" className="imgCart"/>
+                        <img src={imgCart} alt="Cart"/>
                     </a>
                     <a href="/" className={[styles.icon, styles.iconProfile].join(' ')}>
-                        <img src={imgProfile} alt="Profile" className="imgProfile"/>
+                        <img src={imgProfile} alt="Profile"/>
                     </a>
                 </div>
             </div>
