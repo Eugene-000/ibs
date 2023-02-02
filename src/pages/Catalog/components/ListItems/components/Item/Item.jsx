@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Item.module.scss";
 import { Link } from "react-router-dom";
-import { SERVER_URL } from "../../../constants";
-import { ButtonFavourite } from "../../UI/ButtonFavourite/ButtonFavourite";
+import { SERVER_URL } from "../../../../../../constants/routes";
+import { ButtonFavourite } from "../../../../../../components/ButtonFavourite/ButtonFavourite";
 
 export function Item({ item }) {
   return (
@@ -19,7 +19,9 @@ export function Item({ item }) {
           />
         </div>
         <span className={styles.title}>{item.name}</span>
-        <span className={styles.price}>{item.price.value} {item.price.currency}</span>
+        <span className={styles.price}>
+          {item.price.value} {item.price.currency}
+        </span>
       </Link>
     </div>
   );

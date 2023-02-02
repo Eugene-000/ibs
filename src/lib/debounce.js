@@ -1,4 +1,4 @@
-export function debounceSearch(callback, delay) {
+export function debounce(callback, delay) {
     let timeout;
     return function(...argument) {
         clearTimeout(timeout);
