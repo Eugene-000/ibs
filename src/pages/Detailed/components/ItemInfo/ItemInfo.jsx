@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ItemInfo.module.scss";
 import { SERVER_URL } from "../../../../constants/routes";
-import { Modal } from "../../../../components/Modal/Modal";
-import { Loader } from "../../../../components/Loader/Loader";
-import { Counter } from "../../../../components/Counter/Counter";
-import { ButtonFavourite } from "../../../../components/ButtonFavourite/ButtonFavourite";
+import { Modal } from "../../../../components/modal/Modal";
+import { Loader } from "../../../../components/loader/Loader";
+import { Counter } from "../../../../components/counter/Counter";
+import { ButtonFavourite } from "../../../../components/buttonFavourite/ButtonFavourite";
 
 export const ItemInfo = ({item, isLoading, error}) => {
   const [visibleModal, setVisibleModal] = useState(false);

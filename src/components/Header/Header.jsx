@@ -2,7 +2,7 @@ import React from "react";
 import styles from './Header.module.scss';
 import imgCart from '../../assets/images/cart_icon.svg';
 import imgProfile from '../../assets/images/profile_icon.svg';
-import { Search } from "../Search/Search";
+import { Search } from "../search/Search";
 
 export const Header = ({handleSearch}) => {
     return (

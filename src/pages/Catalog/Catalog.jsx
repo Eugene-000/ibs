@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { Header } from "../../components/Header/Header";
-import { ListItems } from "./components/ListItems/ListItems";
+import { Header } from "../../components/header/Header";
+import { ListItems } from "./components/listItems/ListItems";
 import { debounce } from "../../lib/debounce";
 import { ItemsApi } from "../../api/Items";
 import { useFetching } from "../../hooks/useFetching";

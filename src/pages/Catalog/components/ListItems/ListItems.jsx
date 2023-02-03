@@ -1,7 +1,7 @@
 import styles from "./ListItems.module.scss";
-import { Item } from "./components/Item/Item";
-import { Loader } from "../../../../components/Loader/Loader";
-import { Modal } from "../../../../components/Modal/Modal";
+import { Item } from "./components/item/Item";
+import { Loader } from "../../../../components/loader/Loader";
+import { Modal } from "../../../../components/modal/Modal";
 import { useEffect, useState } from "react";
 
 export const ListItems = ({ items, isLoading, error }) => {
