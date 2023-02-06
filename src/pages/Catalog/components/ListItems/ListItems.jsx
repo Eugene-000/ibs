@@ -28,7 +28,7 @@ export const ListItems = ({ items, isLoading, error }) => {
         />
       )}
       <div className={styles.container}>
-        {items.map((item) => (
+        {items && items.map((item) => (
           <Item key={item.id} item={item} />
         ))}
       </div>

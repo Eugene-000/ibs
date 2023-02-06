@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const useFetching = (callback) => {
+export const useFetching = (callback, deps) => {
+    const [data, setData] = useState();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
 
+  useEffect(() => {
     const fetching = async () => {
         try {
             setIsLoading(true);
-            await callback();
+            const data = await callback();
+            setData(data);
         } catch (e) {
             setError(e.message);
         } finally {
@@ -15,5 +18,11 @@ export const useFetching = (callback) => {
         }
     }
 
-    return [fetching, isLoading, error];
+   fetching();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps)
+
+    return [data, isLoading, error];
 }
+

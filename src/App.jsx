@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {Catalog, Detailed} from './pages/index';
-import { PATH_INDEX } from "./constants/routes";
-import { PATH_DETAILED } from "./constants/routes";
+import { PATH_INDEX, PATH_DETAILED } from "./constants/routes";
 
 function App() {
   return (

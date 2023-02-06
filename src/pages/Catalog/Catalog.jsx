@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { Header } from "../../components/header/Header";
 import { ListItems } from "./components/listItems/ListItems";
 import { debounce } from "../../lib/debounce";
@@ -6,21 +6,14 @@ import { ItemsApi } from "../../api/Items";
 import { useFetching } from "../../hooks/useFetching";
 
 export function Catalog() {
-  const [items, setItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const [getItems, isLoading, error] = useFetching(async () => {
-    const items = await ItemsApi.getItems();
-    setItems(items);
-  });
-
-  useEffect(() => {
-    getItems();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const [items, isLoading, error] = useFetching(() => {
+    return ItemsApi.getItems();
+  }, [])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedHandleSearch = useCallback(debounce(setSearchQuery, 2000));
+  const debouncedHandleSearch = useCallback(debounce(setSearchQuery, 2000), []);
 
   const searchedItems = useMemo(() => {
     if (searchQuery && items) {
