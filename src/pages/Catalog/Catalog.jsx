@@ -1,13 +1,12 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { Header } from "../../components/header/Header";
-import { ListItems } from "./components/listItems/ListItems";
+import { Header } from "../../components/Header/Header";
+import { ListItems } from "./components/ListItems/ListItems";
 import { debounce } from "../../lib/debounce";
-import { ItemsApi } from "../../api/Items";
 import { useFetching } from "../../hooks/useFetching";
+import { ItemsApi } from '../../API/Items';
 
 export function Catalog() {
   const [searchQuery, setSearchQuery] = useState("");
-
   const [items, isLoading, error] = useFetching(() => {
     return ItemsApi.getItems();
   }, [])

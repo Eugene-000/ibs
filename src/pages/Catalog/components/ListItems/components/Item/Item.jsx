@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Item.module.scss";
 import { Link } from "react-router-dom";
 import { SERVER_URL } from "../../../../../../constants/routes";
-import { ButtonFavourite } from "../../../../../../components/buttonFavourite/ButtonFavourite";
+import { ButtonFavourite } from "../../../../../../components/ButtonFavourite/ButtonFavourite";
 import { PATH_DETAILED } from "../../../../../../constants/routes";
 
 export function Item({ item }) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {Catalog, Detailed} from './pages/index';
+import { Catalog, Detailed } from "./pages";
 import { PATH_INDEX, PATH_DETAILED } from "./constants/routes";
 
 function App() {

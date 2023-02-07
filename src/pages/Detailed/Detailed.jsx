@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { ItemsApi } from "../../api/Items";
-import { Header } from "../../components/header/Header";
+import { ItemsApi } from '../../API/Items';
+import { Header } from "../../components/Header/Header";
 import { useFetching } from "../../hooks/useFetching";
-import { ItemInfo } from "./components/itemInfo/ItemInfo";
+import { ItemInfo } from "./components/ItemInfo/ItemInfo";
 
 export function Detailed() {
   const { id } = useParams();
