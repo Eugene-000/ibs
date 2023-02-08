@@ -1,0 +1,79 @@
+$color-orange: #E97F03;
+$color-black: #000000;
+$color-dark-grey: #323232;
+
+
+@mixin count {
+    width: 40px;
+    border: 1px solid $color-dark-grey;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    height: 40px;
+
+    .remove {
+        position: relative;
+        border-right: none;
+        @include count;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 19px;
+            left: 13px;
+            width: 14px;
+            height: 2px;
+            background-color: $color-orange;
+        }
+    }
+
+    .add {
+        position: relative;
+        border-left: none;
+        @include count;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 19px;
+            left: 13px;
+            width: 14px;
+            height: 2px;
+            background-color: $color-orange;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            transform: rotate(90deg);
+            top: 19px;
+            left: 13px;
+            width: 14px;
+            height: 2px;
+            background-color: $color-orange;
+        }
+    }
+
+    .number {
+        width: 60px;
+        border: 1px solid $color-dark-grey;
+        text-align: center;
+        font-size: 24px;
+        line-height: 28px;
+        color: $color-black;
+        border-right: none;
+        border-left: none;
+        outline: none;
+    }
+}
+
+@media screen and (min-width: 818px) {
+    .container {
+        
+        .number {
+            width: 100px;
+        }
+    }
+}
