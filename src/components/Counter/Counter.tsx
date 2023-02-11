@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Counter.module.scss';
 
-export const Counter = () => {
+export const Counter: React.FC = () => {
   return (
     <div className={styles.container}>
         <button type="button" className={styles.remove}></button>

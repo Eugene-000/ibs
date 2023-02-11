@@ -2,25 +2,36 @@ import styles from "./ListItems.module.scss";
 import { Item } from "./components/Item/Item";
 import { Loader } from "../../../../components/Loader/Loader";
 import { Modal } from "../../../../components/Modal/Modal";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useTypedSelector } from "../../../../hooks/useTypedSelector";
+import { useActions } from "../../../../hooks/useAction";
+import { IItems } from "../../../../models/items";
 
-export const ListItems = ({ items, isLoading, error }) => {
-  const [visibleModal, setVisibleModal] = useState(false);
+interface IProps {
+  items: Array<IItems> | null,
+  isLoading: boolean,
+  error: string | null
+}
+
+export const ListItems: React.FC<IProps> = ({ items, isLoading, error }) => {
+
+  const {visible} = useTypedSelector(state => state.modal);
+  const {modal__setInvisible, modal__setVisible} = useActions();
 
   const handleCloseModal = () => {
-    setVisibleModal(false);
+    modal__setInvisible();
   };
 
   useEffect(() => {
     if (error) {
-      setVisibleModal(true);
+      modal__setVisible(error);
     }
   }, [error]);
 
   return (
     <div className={styles.wrapper}>
       {isLoading && <Loader />}
-      {visibleModal && (
+      {visible && (
         <Modal
           text={error}
           title="Error Handling"

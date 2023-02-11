@@ -1,7 +1,13 @@
 import React from "react";
 import styles from './Modal.module.scss';
 
-export const Modal = ({text, title, handleCloseModal}) => {
+interface IProps {
+    text: string | null;
+    title: string | null;
+    handleCloseModal: () => void;
+}
+
+export const Modal: React.FC<IProps> = ({text, title, handleCloseModal}) => {
     return (
         <div className={styles.mask}>
             <div className={styles.container}>

@@ -1,28 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./ItemInfo.module.scss";
 import { SERVER_URL } from "../../../../constants/routes";
 import { Modal } from "../../../../components/Modal/Modal";
 import { Loader } from "../../../../components/Loader/Loader";
 import { Counter } from "../../../../components/Counter/Counter";
 import { ButtonFavourite } from "../../../../components/ButtonFavourite/ButtonFavourite";
+import { IItems } from "../../../../models/items";
+import { useTypedSelector } from "../../../../hooks/useTypedSelector";
+import { useActions } from "../../../../hooks/useAction";
 
-export const ItemInfo = ({item, isLoading, error}) => {
-  const [visibleModal, setVisibleModal] = useState(false);
+interface IProps {
+  item: IItems | null;
+  isLoading: boolean;
+  error: string | null;
+}
+
+export const ItemInfo: React.FC<IProps> = ({item, isLoading, error}) => {
+  const {visible} = useTypedSelector(state => state.modal);
+  const {modal__setInvisible, modal__setVisible} = useActions();
 
   const handleCloseModal = () => {
-    setVisibleModal(false);
+    modal__setInvisible();
   };
 
   useEffect(() => {
     if (error) {
-      setVisibleModal(true);
+      modal__setVisible(error);
     }
   }, [error]);
 
   return (
     <div className={styles.wrapper}>
       {isLoading && <Loader />}
-      {visibleModal && (
+      {visible && (
         <Modal
           text={error}
           title="Error Handling"
