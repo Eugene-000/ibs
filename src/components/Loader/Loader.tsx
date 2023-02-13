@@ -1,11 +1,15 @@
+import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 import styles from './Loader.module.scss';
 
 export const Loader: React.FC = () => {
     return (
-        <div className={styles.mask}>
-            <div className={styles.container}></div>
-        </div>
+        <Box className={styles.container}>
+            <CircularProgress
+                size={100} 
+                color={"warning"}
+            />
+        </Box>
     )
 }
 

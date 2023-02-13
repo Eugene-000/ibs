@@ -1,23 +1,53 @@
 import React from "react";
-import styles from './Modal.module.scss';
+import { Dialog, DialogContent, DialogTitle, IconButton, styled, Typography } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 
 interface IProps {
+    open: boolean;
     text: string | null;
     title: string | null;
     handleCloseModal: () => void;
 }
 
-export const Modal: React.FC<IProps> = ({text, title, handleCloseModal}) => {
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+      padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+      padding: theme.spacing(1),
+    },
+}));
+
+export const Modal: React.FC<IProps> = ({open, text, title, handleCloseModal}) => {
     return (
-        <div className={styles.mask}>
-            <div className={styles.container}>
-                <div className={styles.heading}>
-                    <p className={styles.title}>{title}</p>
-                    <button onClick={handleCloseModal} className={styles.closeBtn}>Close</button>
-                </div>
-                <p className={styles.text}>{text}</p>
-            </div>
-        </div>
+    <BootstrapDialog
+        onClose={handleCloseModal}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+    >
+        <DialogTitle sx={{ m: 0, p: 2 }}>
+            {title}
+            {handleCloseModal ? (
+                <IconButton
+                    aria-label="close"
+                    onClick={handleCloseModal}
+                    sx={{
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                        color: '#E97F03',
+                    }}
+                >
+                <CloseIcon />
+                </IconButton>
+            ) : null}
+        </DialogTitle>
+        <DialogContent dividers>
+            <Typography gutterBottom>
+            {text}
+            </Typography>
+        </DialogContent>
+    </BootstrapDialog>
     )
 }
 

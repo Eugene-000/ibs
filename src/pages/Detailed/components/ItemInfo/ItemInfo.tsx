@@ -32,13 +32,12 @@ export const ItemInfo: React.FC<IProps> = ({item, isLoading, error}) => {
   return (
     <div className={styles.wrapper}>
       {isLoading && <Loader />}
-      {visible && (
-        <Modal
-          text={error}
-          title="Error Handling"
-          handleCloseModal={handleCloseModal}
-        />
-      )}
+      <Modal
+        open={visible}
+        text={error}
+        title="Error Handling"
+        handleCloseModal={handleCloseModal}
+      />
       {item && (
         <div className={styles.container}>
           <div className={styles.imgContainer}>
