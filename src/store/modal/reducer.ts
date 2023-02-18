@@ -1,11 +1,11 @@
-import { ModalAction, ModalActionTypes, modalState } from "./types";
+import { ModalAction, ModalActionTypes, ModalState } from "./types";
 
-const initialState: modalState = {
+const initialState: ModalState = {
     visible: false,
     text: null
 }
 
-export const modalReducer = (state = initialState, action: ModalAction): modalState => {
+export const modalReducer = (state = initialState, action: ModalAction): ModalState => {
     switch(action.type) {
         case ModalActionTypes.SET_VISIBLE_MODAL:
             return {visible: true, text: action.payload}

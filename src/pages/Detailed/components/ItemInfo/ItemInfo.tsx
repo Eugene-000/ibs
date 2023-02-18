@@ -1,33 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./ItemInfo.module.scss";
 import { SERVER_URL } from "../../../../constants/routes";
 import { Modal } from "../../../../components/Modal/Modal";
 import { Loader } from "../../../../components/Loader/Loader";
 import { Counter } from "../../../../components/Counter/Counter";
 import { ButtonFavourite } from "../../../../components/ButtonFavourite/ButtonFavourite";
-import { IItems } from "../../../../models/items";
+import { IItem } from "../../../../models/items";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import { useActions } from "../../../../hooks/useAction";
 
 interface IProps {
-  item: IItems | null;
+  item: IItem | null;
   isLoading: boolean;
   error: string | null;
 }
 
 export const ItemInfo: React.FC<IProps> = ({item, isLoading, error}) => {
   const {visible} = useTypedSelector(state => state.modal);
-  const {modal__setInvisible, modal__setVisible} = useActions();
+  const {setInvisible} = useActions();
 
   const handleCloseModal = () => {
-    modal__setInvisible();
+    setInvisible();
   };
-
-  useEffect(() => {
-    if (error) {
-      modal__setVisible(error);
-    }
-  }, [error]);
 
   return (
     <div className={styles.wrapper}>

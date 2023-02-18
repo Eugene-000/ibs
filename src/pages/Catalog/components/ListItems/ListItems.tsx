@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./ListItems.module.scss";
 import { Item } from "./components/Item/Item";
 import { Loader } from "../../../../components/Loader/Loader";
 import { Modal } from "../../../../components/Modal/Modal";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import { useActions } from "../../../../hooks/useAction";
-import { IItems } from "../../../../models/items";
+import { IItem } from "../../../../models/items";
 
 interface IProps {
-  items: Array<IItems> | null,
+  items: Array<IItem> | null,
   isLoading: boolean,
   error: string | null
 }
@@ -16,17 +16,7 @@ interface IProps {
 export const ListItems: React.FC<IProps> = ({ items, isLoading, error }) => {
 
   const {visible} = useTypedSelector(state => state.modal);
-  const {modal__setInvisible, modal__setVisible} = useActions();
-
-  const handleCloseModal = () => {
-    modal__setInvisible();
-  };
-
-  useEffect(() => {
-    if (error) {
-      modal__setVisible(error);
-    }
-  }, [error]);
+  const {setInvisible} = useActions();
 
   return (
     <div className={styles.wrapper}>
@@ -35,7 +25,7 @@ export const ListItems: React.FC<IProps> = ({ items, isLoading, error }) => {
         open={visible}
         text={error}
         title="Error Handling"
-        handleCloseModal={handleCloseModal}
+        handleCloseModal={setInvisible}
       />
       <div className={styles.container}>
         {items && items.map((item) => (

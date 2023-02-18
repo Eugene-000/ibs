@@ -1,8 +1,8 @@
-import { IItems } from "../../models/items";
+import { IItem } from "../../models/items";
 
 export interface ItemState {
-  items: Array<IItems> | null;
-  item: IItems | null;
+  items: Array<IItem> | null;
+  item: IItem | null;
   isLoading: boolean;
   error: null | string;
 }
@@ -20,12 +20,12 @@ interface FetchItemsAction {
 
 interface FetchItemsSuccessAction {
   type: ItemActionTypes.FETCH_ITEMS_SUCCESS;
-  payload: Array<IItems>
+  payload: Array<IItem>
 }
 
 interface FetchItemSuccessAction {
   type: ItemActionTypes.FETCH_ITEM_SUCCESS;
-  payload: IItems
+  payload: IItem
 }
 
 interface FetchItemsErrorAction {

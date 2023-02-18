@@ -3,10 +3,10 @@ import styles from "./Item.module.scss";
 import { Link } from "react-router-dom";
 import { SERVER_URL, PATH_DETAILED } from "../../../../../../constants/routes";
 import { ButtonFavourite } from "../../../../../../components/ButtonFavourite/ButtonFavourite";
-import { IItems } from "../../../../../../models/items";
+import { IItem } from "../../../../../../models/items";
 
 interface IProps {
-  item: IItems;
+  item: IItem;
 }
 
 export const Item: React.FC<IProps> = ({ item }) => {

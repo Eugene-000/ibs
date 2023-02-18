@@ -1,6 +1,7 @@
 import React from "react";
 import { Dialog, DialogContent, DialogTitle, IconButton, styled, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
+import styles from './Modal.module.scss';
 
 interface IProps {
     open: boolean;
@@ -25,18 +26,13 @@ export const Modal: React.FC<IProps> = ({open, text, title, handleCloseModal}) =
         aria-labelledby="customized-dialog-title"
         open={open}
     >
-        <DialogTitle sx={{ m: 0, p: 2 }}>
+        <DialogTitle className={styles.titleContainer}>
             {title}
             {handleCloseModal ? (
                 <IconButton
                     aria-label="close"
                     onClick={handleCloseModal}
-                    sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        color: '#E97F03',
-                    }}
+                    className={styles.closeBtn}
                 >
                 <CloseIcon />
                 </IconButton>

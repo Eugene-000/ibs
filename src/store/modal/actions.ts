@@ -1,10 +1,10 @@
-import { ModalAction, ModalActionTypes } from "./types";
+import { ModalActionTypes } from "./types";
 
-export const modal__setVisible = (text: string): ModalAction => ({
-    type: ModalActionTypes.SET_VISIBLE_MODAL,
+export const setVisible = (text: string) => ({
+    type: ModalActionTypes.SET_VISIBLE_MODAL as const,
     payload: text,
 });
   
-export const modal__setInvisible = (): ModalAction => ({
-    type: ModalActionTypes.SET_INVISIBLE_MODAL
+export const setInvisible = () => ({
+    type: ModalActionTypes.SET_INVISIBLE_MODAL as const
 });

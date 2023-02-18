@@ -9,10 +9,10 @@ export const Catalog: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   
   const {items, error, isLoading} = useTypedSelector(state => state.items);
-  const {items__getItems} = useActions();
+  const {getItems} = useActions();
 
   useEffect(() => {
-    items__getItems()
+    getItems();
   }, [])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

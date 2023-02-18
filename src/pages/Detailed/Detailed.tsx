@@ -9,11 +9,11 @@ export const Detailed: React.FC = () => {
   const { id } = useParams();
 
   const {item, error, isLoading} = useTypedSelector(state => state.items);
-  const {items__getItem} = useActions();
+  const {getItem} = useActions();
 
   useEffect(() => {
     if(id) {
-      items__getItem(id)
+      getItem(id);
     }
   }, [id])
 

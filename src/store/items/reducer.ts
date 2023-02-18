@@ -21,20 +21,3 @@ export const itemsReducer = (state = initialState, action: ItemAction): ItemStat
         return state
   }
 }
-
-
-// type IDataState = typeof initialState;
-
-// export const itemsReducer = (
-//   state = initialState,
-//   action: ItemsAction
-// ): IDataState => {
-//   switch (action.type) {
-//     case IItemsActionTypes.ITEMS__SET_ITEMS:
-//       return { ...state, posts: action.payload };
-//     case IItemsActionTypes.ITEMS__SET_ITEM:
-//       return { ...state, post: action.payload };
-//     default:
-//       return state;
-//   }
-// };
