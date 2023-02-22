@@ -1,13 +1,17 @@
 import React from "react";
 import styles from "./Item.module.scss";
 import { Link } from "react-router-dom";
-import { SERVER_URL } from "../../../../../../constants/routes";
+import { SERVER_URL, PATH_DETAILED } from "../../../../../../constants/routes";
 import { ButtonFavourite } from "../../../../../../components/ButtonFavourite/ButtonFavourite";
-import { PATH_DETAILED } from "../../../../../../constants/routes";
+import { IItem } from "../../../../../../models/items";
 
-export function Item({ item }) {
+interface IProps {
+  item: IItem;
+}
 
-  const createDetailedPath = (id) => PATH_DETAILED.replace(':id', id);
+export const Item: React.FC<IProps> = ({ item }) => {
+
+  const createDetailedPath = (id: string) => PATH_DETAILED.replace(':id', id);
 
   return (
     <div className={styles.item}>

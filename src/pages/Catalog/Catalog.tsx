@@ -1,14 +1,18 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState, useEffect } from "react";
 import { Header } from "../../components/Header/Header";
 import { ListItems } from "./components/ListItems/ListItems";
 import { debounce } from "../../lib/debounce";
-import { useFetching } from "../../hooks/useFetching";
-import { ItemsApi } from '../../API/Items';
+import { useActions } from "../../hooks/useAction";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
-export function Catalog() {
+export const Catalog: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [items, isLoading, error] = useFetching(() => {
-    return ItemsApi.getItems();
+  
+  const {items, error, isLoading} = useTypedSelector(state => state.items);
+  const {getItems} = useActions();
+
+  useEffect(() => {
+    getItems();
   }, [])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

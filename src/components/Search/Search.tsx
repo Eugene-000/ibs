@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './Search.module.scss';
 
-export const Search = ({handleSearch}) => {
+interface IProps {
+  handleSearch: (value: string) => void;
+}
+
+export const Search: React.FC<IProps> = ({handleSearch}) => {
   return (
     <div className={styles.container}>
         <input

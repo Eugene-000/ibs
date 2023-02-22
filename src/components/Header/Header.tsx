@@ -5,7 +5,11 @@ import imgProfile from '../../assets/images/profile_icon.svg';
 import { Search } from "../Search/Search";
 import { PATH_INDEX } from "../../constants/routes";
 
-export const Header = ({handleSearch}) => {
+interface IProps {
+    handleSearch: (value: string) => void;
+}
+
+export const Header: React.FC<IProps> = ({handleSearch}) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
